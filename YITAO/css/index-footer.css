@@ -1,0 +1,86 @@
+.footer{
+	width: 100%;
+	height: 355px;
+	background:#444444;
+	overflow: hidden;
+	/*margin-top:20px;*/
+}
+.footer a:hover{
+	color: peru;
+}
+.footer-top{
+	width:100%;
+	height: 200px;
+	color: #FFFFF0;
+}
+.footer-top a{
+	text-decoration: none;
+	color: white;
+}
+.footer-top>div{
+	width: 950px;
+	height: 180px;
+	margin: 0 auto;
+	opacity: 0.9;
+	filter:alpha(opacity=90); 
+}
+.footer-top>div>dl{
+	/*display: inline-block;*/
+	float: left;
+	margin-right: 90px;
+	margin-top:15px;
+}
+.footer-top>div>dl>dt{
+	font-size:20px;
+	
+}
+.footer-top>div>dl>dd{
+	margin-top: 15px;
+	margin-left: 7px;
+}
+.footer-top>div>div{
+	float: left;
+	margin-top: 15px;
+	margin-right: 90px;
+	position: relative;
+}
+.footer-top>div>div>img{
+	position: absolute;
+	left: -32px;
+	top: 18px;
+	width: 125px;
+}
+
+/*底部最后*/
+.footer-bottom{
+	width: 100%;
+	height: 150px;
+	margin-top:4px;
+}
+.footer-bottom>div{
+	width: 1000px;
+	height: 151px;
+	margin:0 auto;
+	/*background: yellow;*/
+	opacity: 0.9;
+	filter:alpha(opacity=90); 
+}
+.footer-bottom>div a{
+    color:white;
+    text-decoration: none;
+}
+.footer-bottom>div>ul{
+	list-style: none;
+	overflow: hidden;
+	
+}
+.footer-bottom>div>ul>li{
+	float: left;
+	margin-left: 15px;
+	margin-top:15px
+}
+.footer-bottom>div>p{
+	text-align: center;
+	margin-top: 10px;
+	color: white;
+}

@@ -1,0 +1,80 @@
+.xiangqing{
+	width: 100%;
+	height: 650px;
+	border-bottom: 3px solid seagreen;
+	margin-bottom: 30px;
+	/*background: rgb(131,175,155);*/
+}
+.xiangqing>div{
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	/*background: black;*/
+}
+.xiangqingbiaoqi{
+	text-align: center;
+	font-size: 25px;
+	font-weight: 900;
+	height: 120px;
+	line-height: 120px;
+	border-bottom: 2px solid rosybrown;
+}
+.goodsxiangqing{
+	position: relative;
+	/*height: 100%;*/
+	/*overflow: hidden;*/
+}
+.goodsxiangqing>img{
+	position: absolute;
+	left: 0px;
+	top: 50px;
+	width: 300px;
+	
+}
+.youbianjieshao{
+	width:470px;
+	height:400px;
+	/*background: black;*/
+	border: 1px solid seagreen;
+	position: absolute;
+	left:350px;
+	top:50px
+}
+
+.youbianjieshao>p{
+	padding-top: 20px;
+	width: 235px;
+	/*height: 30px;*/
+	margin-left: 30px;
+	font-size: 20px;
+	font-weight: 600;
+	color: sandybrown;
+}
+
+.youbianjieshao>.youbiananniu{
+	position: absolute;
+	bottom: 115px;
+	left: 30px;
+	border: 1px solid !important;
+}
+
+/*购买按钮*/
+.goodsxiangqing>span{
+	position: absolute;
+	display: block;
+	padding: 5px;
+	border-radius: 7px;
+	background: darkgoldenrod;
+	color:white;
+	cursor: pointer;
+}
+.goodsxiangqing>.span11{
+		left: 54px;
+	    top: 370px;
+}
+.goodsxiangqing>.span22{
+		left: 140px;
+	    top: 370px;
+}
+
+

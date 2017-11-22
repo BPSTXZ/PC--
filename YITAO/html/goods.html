@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>一淘网|商品详情</title>
+		<link rel="icon" href="../resource/imges/10.png"/>
+		<link rel="stylesheet" href="../css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index-header.css"/>
+		<link rel="stylesheet" href="../css/goods.css"/>
+		<link rel="stylesheet" href="../css/list.css" />
+	</head>
+	<!--oGoods.innerHTML += `<li><a href="08-goods.html?goods_id=${obj.goods_id}">--><!--首页得添加-->
+	<body>
+		<div class="header-nav"><!--页眉-->
+				<div>
+					<span class="span1">
+					 	欢迎来到一淘网，阿里巴巴旗下生活省钱利器！
+					</span>
+				    <ul>
+				    	<li><a href="我的订单.html">我的订单</a></li>
+						<li><a href="cart.html">购物车</a></li>
+						<li><a href="">我的集分宝</a></li>
+						<li><a href="">消息</a></li>
+						<li><a href="">商家报名</a></li>
+				    </ul>
+				    <span class="span2">
+						<a href="register.html" name="login" class="login denglu">亲，请登录</a>
+						&nbsp;&nbsp;
+						<a  href="login.html" name="register" class="register righta" >免费注册</a>
+						&nbsp;&nbsp;
+						<a href="#" name="username" class="username">用户名</a>
+						&nbsp;&nbsp;
+						<a href="javascript:localStorage.clear(); location.reload();" class="logout">退出登录</a>
+					</span>
+					<script src="../js/logi.js"></script>
+					<script src="../js/myajax.js" charset="utf-8"></script>
+					
+				</div>				 
+		</div>
+		<!--商品列表-->
+		<ul id="cat" class="cat"></ul>
+		    <script>
+		    var oCat = document.querySelector('#cat');
+		    myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText){
+		        var json = JSON.parse(responseText);//返回的整个json对象
+		        var data = json.data;//json对象当中的data是一个数组
+		        for (var i = 0; i < data.length; i++) {
+		          var obj = data[i];//数组里面的每一项是一个商品分类的对象
+		          oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
+		        }
+		    });
+		    </script>
+		
+		<div class="etao-header">
+				<div class="logo">
+					<a href="index.html">
+					 <img src="../resource/imges/logo.png" />
+				   </a>
+				</div>				
+		</div>
+		
+		<!--商品详情框-->
+		<main>
+			<div id="goods" class="goodmai"></div>		
+		</main>	
+		<script src="../js/myajax.js" charset="utf-8"></script>
+		<script src="../js/goods.js"></script>
+		
+		<!--页脚-->
+		<div class="footer">
+		  <div class="footer-hd">
+			    <p>
+				    <a href="//page.1688.com/shtml/about/ali_group1.shtml?spm=a2145.7268393.0.0.3ac33dehSC9pv&amp;file=ali_group1.shtml" data-spm-anchor-id="a2145.7268393.0.0">阿里巴巴集团</a>
+				    <b>|</b>
+				    <a href="//www.alibaba.com">阿里巴巴国际站</a>
+				    <b>|</b>
+				    <a href="//www.1688.com">阿里巴巴中国站</a>
+				    <b>|</b>
+				    <a href="//www.aliexpress.com">全球速卖通</a>
+				    <b>|</b>
+				    <a href="//www.taobao.com">淘宝网</a>
+				    <b>|</b>
+				    <a href="//www.tmall.com">天猫</a>
+				    <b>|</b>
+				    <a href="//ju.taobao.com">聚划算</a>
+				    <b>|</b>
+				    <a href="//www.etao.com">一淘</a>
+				    <b>|</b>
+				    <a href="//www.alimama.com">阿里妈妈</a>
+				    <b>|</b>
+				    <a href="//www.aliyun.com">阿里云计算</a>
+				    <b>|</b>
+				    <a href="//www.yunos.com">云OS</a>
+				    <b>|</b>
+				    <a href="//www.net.cn">万网</a>
+				    <b>|</b>
+				    <a href="//www.alipay.com">支付宝</a>
+			    </p>
+		  </div>
+		  <div class="footer-bd">
+		    <p>
+			    <a href="//www.taobao.com/about">关于淘宝</a>
+			    <a href="//www.taobao.com/about/partners.php">合作伙伴</a>
+			    <a href="//pro.taobao.com">营销中心</a>
+			    <a href="//service.taobao.com/support/main/service_route.htm">联系客服</a>
+			    <a href="//open.taobao.com">开放平台</a>
+			    <a href="//www.taobao.com/about/join.php">诚征英才</a>
+			    <a href="//consumerservice.taobao.com/contact-us">联系我们</a>
+			    <a href="//www.taobao.com/sitemap.php">网站地图</a>
+			    <a href="//terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html">法律声明及隐私权政策</a>
+			    <em>© 2017 Taobao.com 版权所有</em>
+		    </p>
+		    <p>
+			    <span>网络文化经营许可证：<a href="//img.alicdn.com/tps/i4/T1ysdvXtNeXXcPpEkQ-972-636.jpg">文网文[2010]040号</a></span>
+			    <b>|</b>
+			    <span>增值电信业务经营许可证：浙B2-20080224-1</span>
+			    <b>|</b>
+			    <span>信息网络传播视听节目许可证：1109364号</span>
+		    </p>
+		  </div>
+		  <div class="footer-ft">
+			    <a href="//www.pingpinganan.gov.cn/web/index.aspx?file=index.aspx"></a>
+			    <a href="//idinfo.zjaic.gov.cn/bscx.do?method=hddoc&amp;id=33018400000067" class="mod mod-a"></a>
+			    <a href="//idinfo.zjaic.gov.cn/bscx.do?&amp;method=hddoc&amp;id=33018400000067" class="mod mod-b"></a>
+			    <a href="//www.theclimategroup.org.cn/about/friend" class="mod mod-c"></a>
+			    <a href="https://ss.cnnic.cn/verifyseal.dll?&amp;sn=2010062300100001357&amp;pa=20100701" class="mod mod-d"></a>
+			    <a href="//www.ppaaol.com/verifySite.do?id=1051" class="mod mod-e"></a>
+		  </div>
+		  <div class="footer-toy"></div>		  
+		  <div id="server-num" style="color:#FFF;font-size:11px;text-align:center">register010179055042.et2</div>
+		</div>
+	</body>
+</html>

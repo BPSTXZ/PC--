@@ -1,0 +1,174 @@
+/*头部广告*/
+.header{
+	/*border-bottom: 5px solid #F8F8F8;*/
+	border-bottom: 5px solid #FF4200;
+}
+.header-guanggao{
+	width: 100%;
+	/*height: 50px;*/
+	background: #daf8fa;
+}
+
+.header-guanggao a{
+	width: 1200px;
+	height: 50px;
+	margin: 0 auto;
+	display: block;
+}
+.header-guanggao a img{
+   width: 100%;
+   height: 100%;
+}
+
+/*头部导航*/
+.header-nav{
+	width: 100%;
+	height: 40px;
+	background:#F8F8F8;
+	border-bottom: 1px solid #ebebeb;
+	line-height: 40px;
+	font-size: 12px;
+}
+.header-nav>div{
+	width: 1190px;
+	height: 100%;	
+	margin: 0 auto;
+	
+}
+.header-nav>div a{
+	text-decoration: none;
+	color: black;
+}
+.header-nav>div a:hover{
+	color:#FF4200 ;
+}
+.header-nav>div>.span1{
+	float: left;
+}
+.header-nav>div>.span2{
+	float: right;
+	margin-right: 15px;
+	/*background: green;*/
+}
+.header-nav>div>.span2>.denglu{
+	color: #FF4200;
+}
+.header-nav>div>.span2>.righta{
+	padding-right: 15px;
+	border-right: 1px solid #ccc;
+	/*background: pink;*/
+}
+.header-nav>div>ul{
+	list-style: none;
+	float: right;
+}
+.header-nav>div>ul>li{
+	float: left;
+	margin-right: 45px;
+}
+
+/*头部搜索部分*/
+.header-search{
+	width: 100%;
+	/*overflow: hidden;*/
+}
+.header-search>div{
+	width: 1190px;
+	height: 110px;
+	/*background:black;*/
+	margin: 0 auto;
+}
+
+.header-search>div>.sousuologo{
+	float: left;
+	width: 310px;
+	height: 110px;
+}
+.header-search>div>.sousuologo>img,.header-search>div>.sousuoxiazai>img{
+	width: 310px;
+	height: 110px;
+}
+.header-search>div>.sousuoxiazai{
+	float: right;
+	width: 310px;
+	height: 110px;
+	position: relative;
+}
+/*二维码*/
+.header-search>div>.sousuoxiazai>.erweima{
+	width: 110px;
+	height: 150px;
+	position: absolute;
+	left: 157px;
+	top: 104px;
+	display: none;
+}
+.header-search>div>.sousuoxiazai:hover .erweima{
+	display: block;
+}
+
+/*正中间搜索框部分*/
+.header-search>div{
+    width:100%
+	height: 40px;
+}
+.header-search>div>.sousuo{
+	width: 495px;
+	height: 110px;
+	/*background: palegreen;*/
+	float: left;
+}
+.header-search>div>.sousuo>div{
+	width: 490px;
+	height:41px ;
+	border: 2px solid peru;
+	margin-top:28px;
+}
+.header-search>div>.sousuo>div>input{
+	outline: none;
+	border: none;
+	width: 420px;
+	height: 38px;
+	padding-left: 10px;
+	float: left;
+	font-size:15px;
+}
+.header-search>div>.sousuo>div>.sdj{
+	float: left;
+	width: 60px;
+	height: 41px;
+	background:#fb3434 url(../resource/imges/sousu.png) no-repeat center;
+	cursor: pointer;
+}
+
+.header-search>div>.sousuo>ul{
+	margin-top: 10px;
+	list-style: none;
+}
+.header-search>div>.sousuo>ul>li{
+	float: left;
+	margin-right: 5px;
+}
+.header-search>div>.sousuo>ul>li>a{
+	text-decoration: none;
+	font-size: 12px;
+	color: #ccc;
+	border: 1px solid transparent;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 5px;
+}
+.header-search>div>.sousuo>ul>li>a:hover{
+	/*border: 1px solid #fb3434;*/
+	background:#fb3434 ;
+	color: white;
+	
+}
+
+
+
+
+.span2 a,.username,.logout{
+	display: none;
+}
+

@@ -1,0 +1,81 @@
+.sousuosection{
+	width:1200px;
+	margin: 0 auto;
+	/*background: rgb(200,200,169);*/
+	overflow: hidden;
+	display: block;
+}
+.sousuosection>h1{
+	width: 335px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	font-weight: 900;
+	font-size: 30px;
+	margin: 0 auto;
+	margin-top: 10px;
+	color: #CA5252;
+	font-style:italic;
+	/*background: palegoldenrod;*/
+	/*overflow: hidden;*/
+}
+.sousuosection a{
+	text-decoration: none;
+}
+
+
+/*.sousuosection a:hover{
+	text-decoration: underline;
+}*/
+
+.sousuosection li {
+      list-style: none;
+      float: left;
+      margin: 20px 30px 30px 20px;
+      width: 250px;
+      height: 320px;
+      overflow: hidden;
+      background: rgba(234,32,0,.3);
+       overflow: hidden;      
+       white-space:nowrap;
+       border-radius:15px ;
+    }
+ .sousuosection li:hover{
+ 	box-shadow: 1px 2px 2px 2px rgba(234,32,0,.6);
+ }   
+    .oimg{
+    	width: 250px;
+    	height: 250px;
+    	overflow: hidden;
+    	border-radius:15px ;
+    }
+    
+   .sousuosection  li img {
+      width: 100%;
+      transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55) 0s;
+    }
+  .sousuosection   li:hover img{
+    -webkit-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+   .sousuosection  .good{
+		  	color:orangered;
+		  	padding-left: 10px;
+		  	text-overflow:ellipsis;
+		  	white-space:nowrap;
+		  	overflow: hidden;
+		  	margin-top: 5px;
+		  }  
+	.sousuosection 	  .price{
+		  	color: #FFFF00;
+		  	font-size: 20px;
+		  	padding: 10px;
+		  }
+
+
+
+.nll{
+	font-size: 40px;
+	padding: 100px;
+	color: #777777;
+}
