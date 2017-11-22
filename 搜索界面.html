@@ -2,17 +2,21 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>一淘网|我的订单</title>
-		<link rel="icon" href="../resource/imges/10.png"/>	
-		<link rel="stylesheet" href="../css/login.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/index-header.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/index-footer.css"/>
-		<link rel="stylesheet" href="../css/list.css" />
-		<link rel="stylesheet" href="../css/reset.css">
-		<link rel="stylesheet" href="../css/order.css">
+		<title>搜索界面</title>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/index-header.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/index-footer.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/sousuosection.css"/>
+		<script src="./js/myajax.js"></script>
 	</head>
 	<body>
-		<div class="header-nav"><!--页眉-->
+		<div id="" class="header">
+			<div class="header-guanggao">
+				<a href="#">
+					<img src="./resource/imges/guanggao.jpg"/>
+				</a>
+			</div>
+			<div class="header-nav">
 				<div>
 					<span class="span1">
 					 	欢迎来到一淘网，阿里巴巴旗下生活省钱利器！
@@ -25,50 +29,27 @@
 						<li><a href="">商家报名</a></li>
 				    </ul>
 				    <span class="span2">
-						<a href="register.html" name="login" class="login denglu">亲，请登录</a>
+						<a href="#" name="login" >亲,请登录</a>
 						&nbsp;&nbsp;
-						<a  href="login.html" name="register" class="register righta" >免费注册</a>
+						<a  href="#" name="register">免费注册</a>
 						&nbsp;&nbsp;
-						<a href="#" name="username" class="username">用户名</a>
+						<a href="#" name="username" >用户名</a>
 						&nbsp;&nbsp;
-						<a href="javascript:localStorage.clear(); location.reload();" class="logout">退出登录</a>
-					</span>
-					<script src="../js/logi.js"></script>
-					<script src="../js/myajax.js" charset="utf-8"></script>
-					
-				</div>				 
-		</div>
-		<!--商品列表-->
-		<ul id="cat" class="cat"></ul>
-		    <script>
-		    var oCat = document.querySelector('#cat');
-		    myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText){
-		        var json = JSON.parse(responseText);//返回的整个json对象
-		        var data = json.data;//json对象当中的data是一个数组
-		        for (var i = 0; i < data.length; i++) {
-		          var obj = data[i];//数组里面的每一项是一个商品分类的对象
-		          oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
-		        }
-		    });
-		    </script>
-		<!--logo-->
-		<div class="etao-header">
-				<div class="logo">
-					<a href="index.html">
-					 <img src="../resource/imges/logo.png" />
-				   </a>
-				</div>				
-		</div>
-		
-		<!--我的订单-->
-		 <main>
-		    <ul id="order">	
-		    </ul>
-		 </main>
-		 <script src="../js/myajax.js" charset="utf-8"></script>
-		 <script src="../js/order.js" charset="utf-8"></script>
-		<!--页脚-->
-		<div class="footer">
+					</span>									
+				 </div>
+			 </div>
+        </div>
+        
+            <!--中间部分-->
+			 <div class="sousuosection">
+			 	<div >
+			 		<ul id="hot-goods">
+		 		 	</ul>
+			 	</div>
+			 </div>
+			 <!--这个是ajax获取搜索的商品-->
+		    <script src="./js/sousuojiemianajxs.js"></script>
+		   <div class="footer">
 			<div class="footer-top">
 				<div id="">
 					<dl style="margin-left: 90px;">
@@ -87,7 +68,7 @@
 					</dl>
 					<div>
 						<h2>关注我们</h2>
-						<img src="../resource/imges/erweima.png"/>
+						<img src="./resource/imges/erweima.png"/>
 					</div>
 					<dl>
 						<dt><a href="#">优惠地图</a></dt>

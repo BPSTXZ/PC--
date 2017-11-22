@@ -2,15 +2,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>一淘网|管理订单</title>
-		<link rel="icon" href="../resource/imges/10.png"/>	
-		<link rel="stylesheet" href="../css/login.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/index-header.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/index-footer.css"/>
-		<link rel="stylesheet" href="../css/list.css" />
-		<link rel="stylesheet" href="../css/reset.css">
-  		<link rel="stylesheet" href="../css/modal.css">
-  		<link rel="stylesheet" href="../css/checkout.css">	
+		<title>一淘|商品列表</title>
+		<link rel="icon" href="./resource/imges/bitaoti.ico" />
+		<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/index-header.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/index-footer.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/index-section.css"/>
+		<link rel="stylesheet" href="./css/list.css" />
+		<link rel="stylesheet" href="./css/login.css"/>
 	</head>
 	<body>
 		<div class="header-nav"><!--页眉-->
@@ -34,13 +33,13 @@
 						&nbsp;&nbsp;
 						<a href="javascript:localStorage.clear(); location.reload();" class="logout">退出登录</a>
 					</span>
-					<script src="../js/logi.js"></script>
-					<script src="../js/myajax.js" charset="utf-8"></script>
+					<script src="./js/logi.js"></script>
+					<!--<script src="./js/myajax.js" charset="utf-8"></script>-->
+					<script src="./js/jquery-3.2.1.js" charset="utf-8"></script>
 					
 				</div>				 
 		</div>
 		<!--商品列表-->
-		<script src="../js/jquery-3.2.1.js"></script>
 		<ul id="cat" class="cat"></ul>
 		    <script>
 		    $();//调用的$这个函数，返回的是一个jquery对象；这些方法为操作DOM
@@ -56,90 +55,42 @@
 		      }
 		      $('#cat').html(str);
 		    });
+
 		    </script>
 		<!--logo-->
 		<div class="etao-header">
 				<div class="logo">
 					<a href="index.html">
-					 <img src="../resource/imges/logo.png" />
+					 <img src="./resource/imges/logo.png" />
 				   </a>
 				</div>				
 		</div>
-		<!--收货管理/下订单-->
-		<main>
-			<div class="shouhuo"> 
-				收货地址:
-		    	<input type="button" id="add-address" value="添加收货地址" />
-		    	<script src="../js/modal.js" charset="utf-8"></script>
-			</div>		      
-		    <div class="address">
-			      <div>
-			        <ul class="address-ul">
-			        </ul>
-			      </div>
-			      <div class="show-all-address">显示全部地址</div>
-			      <script src="../js/animate.js" charset="utf-8"></script>
-			      <script src="../js/checkout.js"></script>
-		    </div>			
-		    <div id="order" class="dinda">下订单</div>
-  		</main>
-  		<script src="../js/checkout.js"></script>
-  		<script src="../js/modal.js"></script>
-  		
-		<!--添加收货地址-->
-		<div class="modal register">
-		    <div class="container">
-		      <div class="hd">添加收货地址<span class="close">关闭</span></div>
-		      <div class="bd">
-		        <form>
-		          <label>
-		            地址名称: <input type="text" name="address_name" value="家">
-		          </label>
-		          <label>
-		            收货人: <input type="text" name="consignee" value="maxwelldu">
-		          </label>
-		          <label>
-		            国家: <input type="text" name="country" value="中国">
-		          </label>
-		          <label>
-		            省: <input type="text" name="province" value="北京">
-		          </label>
-		          <label>
-		            市: <input type="text" name="city" value="北京">
-		          </label>
-		          <label>
-		            区: <input type="text" name="district" value="石景山">
-		          </label>
-		          <label>
-		            地址: <input type="text" name="address" value="实兴东街11号朗诚大厦南楼二层">
-		          </label>
-		          <label>
-		            邮编: <input type="text" name="zip_code" value="100000">
-		          </label>
-		          <label>
-		            手机号: <input type="text" name="mobile" value="18518368050">
-		          </label>
-		          <label>
-		            邮箱: <input type="text" name="email" value="dcj3sjt@126.com">
-		          </label>
-		          <label>
-		            电话: <input type="text" name="tel" value="010-91519281">
-		          </label>
-		          <label>
-		            最佳送货时间: <input type="text" name="besttime" value="周一到周五">
-		          </label>
-		          <label>
-		            标志物: <input type="text" name="sign_building" value="">
-		          </label>
-		          <label>
-		            <input type="button" value="添加" class="add" >
-		          </label>
-		        </form>
-		      </div>
+		
+		<!--商品列表-->
+			<div class="remenshangping">
+		     	 <ul id="hot-goods">
+		 		 </ul>
 		    </div>
- 		 </div>
-		 <script src="../js/modal.js" charset="utf-8"></script>
-		<script src="../js/checkout.js"></script>
+		    <!--首页展示热门商品和点击分类出现各个分类的商品-->
+          <script>
+//        	var cat_id = getQueryString('cat_id');   
+		    var oGoods = document.querySelector('#hot-goods');
+		    $.get('http://h6.duchengjiu.top/shop/api_goods.php',{},function(json){		      
+		      console.log(json);
+		      var data = json.data;
+		      for (var i = 0; i < data.length; i++) {
+		        var obj = data[i];
+		        oGoods.innerHTML += `<li class="remenli">
+		        <a href="goods.html?goods_id=${obj.goods_id}">
+		          <div class="oimg"><img src="${obj.goods_thumb}" /></div>
+		          <div class="good">${obj.goods_name}</div>
+		          <div class="price">${obj.price}</div>
+		        </a>
+		        </li>`;
+		      }
+		    });
+          </script>
+		
 		
 		<!--页脚-->
 		<div class="footer">
@@ -161,7 +112,7 @@
 					</dl>
 					<div>
 						<h2>关注我们</h2>
-						<img src="../resource/imges/erweima.png"/>
+						<img src="./resource/imges/erweima.png"/>
 					</div>
 					<dl>
 						<dt><a href="#">优惠地图</a></dt>

@@ -2,21 +2,51 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>一淘网|购物车</title>
-		<link rel="icon" href="../resource/imges/10.png"/>	
-		<link rel="stylesheet" href="../css/login.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/index-header.css"/>
-		<link rel="stylesheet" href="../css/cart.css" />
-		<link rel="stylesheet" href="../css/list.css" />
+		<title>一淘网|注册</title>
+		<link rel="icon" href="./resource/imges/10.png"/>
+		<link rel="stylesheet" href="./css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/index-header.css"/>
+		<link rel="stylesheet" href="./css/list.css" />
 	</head>
-	<body>
-		<div class="header-nav"><!--页眉-->
+	<body>		
+	  <div class="img" id="imgs">
+		<div class="motaik" id="mot"><!--模态框-->
+		    <div class="ks-dialog-content">
+		        <a target="_top" href="http://www.taobao.com/" class="ks-overlay-close" role="button">
+		            <span class="iconfont ks-dialog-close-x ks-overlay-close-x" style="color: #2B2B2B;">X</span>
+		        </a>
+		        <div class="ks-dialog-header" style="font-size: 14px;">
+		            <h3>注册协议</h3>
+		        </div>
+			        <div class="ks-dialog-body">
+			            <p><strong>【审慎阅读】</strong>您在申请注册流程中点击同意前，应当认真阅读以下协议。<strong style="text-decoration: underline">请您务必审慎阅读、充分理解协议中相关条款内容，其中包括：</strong></p>
+			            <p>1、<strong style="text-decoration: underline">与您约定免除或限制责任的条款；</strong></p>
+			            <p>2、<strong style="text-decoration: underline">与您约定法律适用和管辖的条款；</strong></p>
+			            <p>3、<strong style="text-decoration: underline">其他以粗体下划线标识的重要条款。</strong></p>
+			            <p>如您对协议有任何疑问，可向平台客服咨询。</p>
+			            <p><strong>【特别提示】</strong>当您按照注册页面提示填写信息、阅读并同意协议且完成全部注册程序后，即表示您已充分阅读、理解并接受协议的全部内容。如您因平台服务与淘宝发生争议的，适用《淘宝平台服务协议》处理。如您在使用平台服务过程中与其他用户发生争议的，依您与其他用户达成的协议处理。</p>
+			            <p><strong style="text-decoration: underline">阅读协议的过程中，如果您不同意相关协议或其中任何条款约定，您应立即停止注册程序。</strong></p>
+			
+			
+			            <p><a href="http://terms.alicdn.com/legal-agreement/terms/TD/TD201609301342_19559.html" target="_blank">《淘宝平台服务协议》</a></p>
+			            <p><a href="http://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html" target="_blank">《法律声明及隐私权政策》</a></p>
+			            <p><a href="https://ds.alipay.com/fd-inhm9zcq/index.html" target="_blank">《支付宝服务协议》</a></p>
+			
+			            <p style="text-align: center">
+			                <button class="btn btn-large" type="button" id="J_AgreementBtn">同意协议</button>
+			            </p>
+			        </div>
+		    </div>
+        </div>
+       </div>
+       <div id="boy">
+        <div class="header-nav"><!--页眉-->
 				<div>
 					<span class="span1">
 					 	欢迎来到一淘网，阿里巴巴旗下生活省钱利器！
 					</span>
 				    <ul>
-				    	<li><a href="我的订单.html">我的订单</a></li>>
+				    	<li><a href="">我的订单</a></li>
 						<li><a href="cart.html">购物车</a></li>
 						<li><a href="">我的集分宝</a></li>
 						<li><a href="">消息</a></li>
@@ -31,8 +61,8 @@
 						&nbsp;&nbsp;
 						<a href="javascript:localStorage.clear(); location.reload();" class="logout">退出登录</a>
 					</span>
-					<script src="../js/logi.js"></script>
-					<script src="../js/myajax.js" charset="utf-8"></script>
+					<script src="./js/logi.js"></script>
+					<script src="./js/myajax.js" charset="utf-8"></script>
 					
 				</div>				 
 		</div>
@@ -49,34 +79,35 @@
 		        }
 		    });
 		    </script>
-		<!--logo-->
+		
+		
 		<div class="etao-header">
 				<div class="logo">
 					<a href="index.html">
-					 <img src="../resource/imges/logo.png" />
+					 <img src="./resource/imges/logo.png" />
 				   </a>
 				</div>				
 		</div>
 		
-		<!--购物车框-->			    
-		  <main>
-		    <table>
-		      <tr>
-		      	<td>商品防伪ID</td>
-		        <td>图片</td>
-		        <td>名称</td>
-		        <td>数量</td>
-		        <td>单价</td>
-		        <td>总价</td>
-		        <td>编辑</td>
-		      </tr>
-		    </table>
-		    <div class="xiaoji">小计： <span id="sum">0</span> <input type="button" id="clear-cart" value="清空购物车"> <a href="checkout.html">下定单</a></div>
-		  </main>	
-		<script src="../js/cart.js"  charset="utf-8"></script>
-		<script src="../js/myajax.js" charset="utf-8"></script>
-		
-		
+		                <div class="static-form " id="staticu"><!--注册-->
+							<div class="username-field">
+							<i class="iconfont" title="会员名">
+								<img src="./resource/imges/04.png"/>
+							</i>
+							<input type="text" class="input-suo" id="denglu"  placeholder="设置会员名" />
+							</div>
+							
+							<div class="username-field">
+							<i class="iconfont" title="密码">
+								<img src="./resource/imges/05.png"/>
+							</i>
+							<input type="password" class="input-suo"  id="mima" placeholder="设置密码"/>
+							</div>
+							
+							<button type="submit" class="j-submit" id="ipt">注册</button>
+						</div>				
+						<script src="./js/login.js"></script>
+						<script src="./js/myajax.js" charset="utf-8"></script>
 		<!--页脚-->
 		<div class="footer">
 		  <div class="footer-hd">
@@ -140,6 +171,6 @@
 		  <div class="footer-toy"></div>		  
 		  <div id="server-num" style="color:#FFF;font-size:11px;text-align:center">register010179055042.et2</div>
 		</div>
-		
+	  </div> 	
 	</body>
 </html>

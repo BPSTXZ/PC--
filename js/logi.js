@@ -5,12 +5,12 @@ if (localStorage.username) {
         oUsername.innerText = localStorage.username;
         oUsername.style.display = 'inline';
         oLogout.style.display = 'inline';
-        oimg.src='../resource/imges/25.gif';
-        if (oimg.src='../resource/imges/25.gif') {
+        oimg.src='./resource/imges/25.gif';
+        if (oimg.src='./resource/imges/25.gif') {
         	var reg_ht=document.querySelector('#reg_ht');
         	var log_in=document.querySelector('#log_in');
-        	reg_ht.style.display="none";
-        	log_in.style.display="none";
+        	reg_ht.style.display='none';
+        	log_in.style.display='none';
         }
       } else {
         var oRegister = document.querySelector('.register');
