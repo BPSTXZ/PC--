@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>一淘|商品列表</title>
-		<link rel="icon" href="./resource/imges/bitaoti.ico" />
-		<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="./css/index-header.css"/>
-		<link rel="stylesheet" type="text/css" href="./css/index-footer.css"/>
-		<link rel="stylesheet" type="text/css" href="./css/index-section.css"/>
-		<link rel="stylesheet" href="./css/list.css" />
-		<link rel="stylesheet" href="./css/login.css"/>
-	</head>
-	<body>
-		<div class="header-nav"><!--页眉-->
-				<div>
-					<span class="span1">
+
+<head>
+	<meta charset="UTF-8">
+	<title>一淘|商品列表</title>
+	<link rel="icon" href="./resource/imges/bitaoti.ico" />
+	<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="./css/index-header.css" />
+	<link rel="stylesheet" type="text/css" href="./css/index-footer.css" />
+	<link rel="stylesheet" type="text/css" href="./css/index-section.css" />
+	<link rel="stylesheet" href="./css/list.css" />
+	<link rel="stylesheet" href="./css/login.css" />
+</head>
+
+<body>
+	<div class="header-nav">
+		<!--页眉-->
+		<div>
+			<span class="span1">
 					 	欢迎来到一淘网，阿里巴巴旗下生活省钱利器！
 					</span>
-				    <ul>
-				    	<li><a href="我的订单.html">我的订单</a></li>
-						<li><a href="cart.html">购物车</a></li>
-						<li><a href="">我的集分宝</a></li>
-						<li><a href="">消息</a></li>
-						<li><a href="">商家报名</a></li>
-				    </ul>
-				    <span class="span2">
+			<ul>
+				<li><a href="我的订单.html">我的订单</a></li>
+				<li><a href="cart.html">购物车</a></li>
+				<li><a href="">我的集分宝</a></li>
+				<li><a href="">消息</a></li>
+				<li><a href="">商家报名</a></li>
+			</ul>
+			<span class="span2">
 						<a href="register.html" name="login" class="login denglu">亲，请登录</a>
 						&nbsp;&nbsp;
 						<a  href="login.html" name="register" class="register righta" >免费注册</a>
@@ -33,127 +36,134 @@
 						&nbsp;&nbsp;
 						<a href="javascript:localStorage.clear(); location.reload();" class="logout">退出登录</a>
 					</span>
-					<script src="./js/logi.js"></script>
-					<!--<script src="./js/myajax.js" charset="utf-8"></script>-->
-					<script src="./js/jquery-3.2.1.js" charset="utf-8"></script>
-					
-				</div>				 
-		</div>
-		<!--商品列表-->
-		<ul id="cat" class="cat"></ul>
-		    <script>
-		    $();//调用的$这个函数，返回的是一个jquery对象；这些方法为操作DOM
-		    //$.get 在$这个函数（这个对象）身上有一个get方法
-		    $.get("http://h6.duchengjiu.top/shop/api_cat.php", {}, function(json){
-		      var data = json.data;
-		      //是每一次都添加元素到页面上性能好还是组装好所有的内容之后一次性插入性能好
-		      //每次都添加，页面会渲染多次
-		      var str = '';
-		      for (var i = 0; i < data.length; i++) {
-		        var obj = data[i];
-		        str += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`
-		      }
-		      $('#cat').html(str);
-		    });
+			<script src="./js/logi.js"></script>
+			<!--<script src="./js/myajax.js" charset="utf-8"></script>-->
+			<script src="./js/jquery-3.2.1.js" charset="utf-8"></script>
 
-		    </script>
-		<!--logo-->
-		<div class="etao-header">
-				<div class="logo">
-					<a href="index.html">
+		</div>
+	</div>
+	<!--商品列表-->
+	<ul id="cat" class="cat"></ul>
+	<script src="js/myajax.js" charset="utf-8"></script>
+	<script>
+		var oCat = document.querySelector('#cat');
+		myajax.get('http://h6.duchengjiu.top/shop/api_cat.php', {}, function(error, responseText) {
+			var json = JSON.parse(responseText); //返回的整个json对象
+			var data = json.data; //json对象当中的data是一个数组
+			for (var i = 0; i < data.length; i++) {
+				var obj = data[i]; //数组里面的每一项是一个商品分类的对象
+				oCat.innerHTML += `<li><a href="list.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
+			}
+		});
+	</script>
+	<!--logo-->
+	<div class="etao-header">
+		<div class="logo">
+			<a href="index.html">
 					 <img src="./resource/imges/logo.png" />
 				   </a>
-				</div>				
 		</div>
-		
-		<!--商品列表-->
-			<div class="remenshangping">
-		     	 <ul id="hot-goods">
-		 		 </ul>
-		    </div>
-		    <!--首页展示热门商品和点击分类出现各个分类的商品-->
-          <script>
-//        	var cat_id = getQueryString('cat_id');   
-		    var oGoods = document.querySelector('#hot-goods');
-		    $.get('http://h6.duchengjiu.top/shop/api_goods.php',{},function(json){		      
-		      console.log(json);
-		      var data = json.data;
-		      for (var i = 0; i < data.length; i++) {
-		        var obj = data[i];
-		        oGoods.innerHTML += `<li class="remenli">
-		        <a href="goods.html?goods_id=${obj.goods_id}">
-		          <div class="oimg"><img src="${obj.goods_thumb}" /></div>
-		          <div class="good">${obj.goods_name}</div>
-		          <div class="price">${obj.price}</div>
-		        </a>
-		        </li>`;
-		      }
-		    });
-          </script>
-		
-		
-		<!--页脚-->
-		<div class="footer">
-			<div class="footer-top">
-				<div id="">
-					<dl style="margin-left: 90px;">
-						<dt><a href="#">关于我们</a></dt>
-						<dd><a href="#">关于我们</a></dd>
-						<dd><a href="#">关于我们</a></dd>
-						<dd><a href="#">关于我们</a></dd>
-						<dd><a href="#">关于我们</a></dd>
-					</dl>
-					<dl>
-						<dt><a href="#">帮助中心</a></dt>
-						<dd><a href="#">帮助中心</a></dd>
-						<dd><a href="#">帮助中心</a></dd>
-						<dd><a href="#">帮助中心</a></dd>
-						<dd><a href="#">帮助中心</a></dd>
-					</dl>
-					<div>
-						<h2>关注我们</h2>
-						<img src="./resource/imges/erweima.png"/>
-					</div>
-					<dl>
-						<dt><a href="#">优惠地图</a></dt>
-						<dd><a href="#">优惠地图</a></dd>
-						<dd><a href="#">优惠地图</a></dd>
-						<dd><a href="#">优惠地图</a></dd>
-						<dd><a href="#">优惠地图</a></dd>
-					</dl>
-					<dl>
-						<dt><a href="#">商家合作</a></dt>
-						<dd><a href="#">商家合作</a></dd>
-						<dd><a href="#">商家合作</a></dd>
-						<dd><a href="#">商家合作</a></dd>
-						<dd><a href="#">商家合作</a></dd>
-					</dl>
+	</div>
+
+	<!--商品列表-->
+	<div class="remenshangping">
+		<ul id="hot-goods">
+		</ul>
+	</div>
+	<!--首页展示热门商品和点击分类出现各个分类的商品-->
+	<script>
+		var cat_id = getQueryString('cat_id'); /*获取RUL里面的cat_id值*/
+		var oGoods = document.querySelector('#hot-goods');
+		myajax.get('http://h6.duchengjiu.top/shop/api_goods.php', {
+				cat_id: cat_id
+			},
+			(err, responseText) => {
+				var json = JSON.parse(responseText);
+				console.log(json);
+				var data = json.data;
+				//判断如果没有数据，则显示空的提示
+				if (data.length === 0) {
+					oGoods.innerHTML = "<center>后端程序员跑路了</center>";
+					return;
+				}
+				for (var i = 0; i < data.length; i++) {
+					var obj = data[i];
+					oGoods.innerHTML +=
+						`<li class="remenli">
+					 <a href="goods.html?goods_id=${obj.goods_id}">
+						 <div class="oimg"><img src="${obj.goods_thumb}" /></div>
+						 <div class="good">${obj.goods_name}</div>
+						 <div class="price">${obj.price}</div>
+					 </a>
+					 </li>`;
+				}
+			});
+	</script>
+
+
+	<!--页脚-->
+	<div class="footer">
+		<div class="footer-top">
+			<div id="">
+				<dl style="margin-left: 90px;">
+					<dt><a href="#">关于我们</a></dt>
+					<dd><a href="#">关于我们</a></dd>
+					<dd><a href="#">关于我们</a></dd>
+					<dd><a href="#">关于我们</a></dd>
+					<dd><a href="#">关于我们</a></dd>
+				</dl>
+				<dl>
+					<dt><a href="#">帮助中心</a></dt>
+					<dd><a href="#">帮助中心</a></dd>
+					<dd><a href="#">帮助中心</a></dd>
+					<dd><a href="#">帮助中心</a></dd>
+					<dd><a href="#">帮助中心</a></dd>
+				</dl>
+				<div>
+					<h2>关注我们</h2>
+					<img src="./resource/imges/erweima.png" />
 				</div>
-			</div>
-			<div class="footer-bottom">
-				<div id="">
-					<ul>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-						<li><a href="#">阿里巴巴</a></li>
-					</ul>
-					<p>Copyright © 2010-2017 ETAO.COM 版权所有</p>
-					<p>增值电信业务经营许可证：浙B2-20080224</p>
-				</div>
+				<dl>
+					<dt><a href="#">优惠地图</a></dt>
+					<dd><a href="#">优惠地图</a></dd>
+					<dd><a href="#">优惠地图</a></dd>
+					<dd><a href="#">优惠地图</a></dd>
+					<dd><a href="#">优惠地图</a></dd>
+				</dl>
+				<dl>
+					<dt><a href="#">商家合作</a></dt>
+					<dd><a href="#">商家合作</a></dd>
+					<dd><a href="#">商家合作</a></dd>
+					<dd><a href="#">商家合作</a></dd>
+					<dd><a href="#">商家合作</a></dd>
+				</dl>
 			</div>
 		</div>
-	</body>
+		<div class="footer-bottom">
+			<div id="">
+				<ul>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+					<li><a href="#">阿里巴巴</a></li>
+				</ul>
+				<p>Copyright © 2010-2017 ETAO.COM 版权所有</p>
+				<p>增值电信业务经营许可证：浙B2-20080224</p>
+			</div>
+		</div>
+	</div>
+</body>
+
 </html>
