@@ -27,7 +27,7 @@
                     	remenbiaoti.style.display="none";
                     }
                     if(obj==false){
-                    	remenUl.innerHTML=`<h1 id="meiyoushuju">我们的杜老师没给数据</h1>`
+                    	remenUl.innerHTML=`<h1 id="meiyoushuju">后端程序员跑路了</h1>`
                     	return;
                     }
                     
